@@ -1,0 +1,16 @@
+name: Идея
+description: Предложи, что добавить или улучшить в Senku
+labels: ["идея"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Идея
+      description: Что хочется и зачем
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Пример
+      description: Как это могло бы выглядеть — можно скриншот с другого сайта

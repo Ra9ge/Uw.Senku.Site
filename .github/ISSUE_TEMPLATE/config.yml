@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Сайт Senku
+    url: https://senku.one
+    about: Смотреть аниме и читать мангу
+  - name: Сообщить об уязвимости
+    url: https://github.com/Ra9ge/Uw.Senku.Site/security/advisories/new
+    about: Приватно, без публичного issue

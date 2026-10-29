@@ -1,0 +1,40 @@
+name: Ошибка на сайте
+description: Что-то работает не так на senku.one или в приложениях
+labels: ["ошибка"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо, что помогаешь сделать Senku лучше. Уязвимости сюда не пиши — для них есть [приватная форма](../security/advisories/new).
+  - type: dropdown
+    id: where
+    attributes:
+      label: Где
+      options:
+        - Сайт на компьютере
+        - Сайт на телефоне
+        - Приложение Windows
+        - Приложение Android
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Ссылка на страницу
+      placeholder: https://senku.one/...
+  - type: textarea
+    id: what
+    attributes:
+      label: Что случилось
+      description: Что ты делал, что ожидал и что получилось на самом деле
+    validations:
+      required: true
+  - type: textarea
+    id: screens
+    attributes:
+      label: Скриншоты или видео
+  - type: input
+    id: browser
+    attributes:
+      label: Браузер и устройство
+      placeholder: Chrome 140, Android 15
