@@ -1,0 +1,30 @@
+{
+  "name": "@senku/brand",
+  "version": "0.1.0",
+  "description": "Логотип, цвета и шрифты Senku как код: CSS-переменные, токены и SVG",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens.css": "./tokens.css",
+    "./tokens.json": "./tokens.json"
+  },
+  "files": [
+    "dist",
+    "tokens.css",
+    "tokens.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "license": "SEE LICENSE IN ../../LICENSE",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

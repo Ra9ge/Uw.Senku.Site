@@ -1,0 +1,37 @@
+import { tokens as tokensJson } from './tokens.js';
+
+export const LOGO_PATH = 'M22.95 0.71 L22.43 0.39 L21.99 0.26 L20.89 0.24 L19.97 0.39 L18.95 0.73 L17.75 1.39 L16.94 2.09 L16.63 2.59 L16.44 3.32 L15.24 2.88 L14.04 2.59 L12.73 2.43 L11.35 2.43 L9.65 2.67 L8.58 2.95 L7.53 3.37 L7.37 2.67 L7.01 2.07 L6.22 1.36 L5.80 1.10 L4.78 0.63 L3.58 0.31 L2.25 0.26 L1.52 0.44 L0.92 0.84 L0.44 1.49 L0.21 2.09 L0.08 2.64 L0.00 4.05 L0.10 5.05 L0.34 6.04 L0.81 7.01 L1.33 7.50 L1.65 7.66 L2.20 7.79 L1.75 8.39 L1.25 9.23 L0.89 10.04 L0.60 10.90 L0.31 12.55 L0.34 14.20 L0.60 15.56 L1.15 17.07 L1.78 18.22 L2.98 19.82 L3.84 20.68 L4.73 21.41 L5.88 22.17 L6.90 22.69 L7.74 23.03 L9.07 23.42 L10.22 23.63 L11.56 23.74 L12.78 23.71 L13.75 23.61 L15.03 23.35 L16.18 22.98 L17.23 22.54 L18.41 21.88 L19.45 21.15 L20.13 20.58 L21.39 19.24 L22.51 17.57 L23.22 15.92 L23.42 15.19 L23.58 14.30 L23.63 12.73 L23.37 11.06 L22.90 9.70 L22.41 8.73 L21.78 7.82 L22.59 7.56 L23.11 7.11 L23.58 6.25 L23.90 5.02 L23.97 4.34 L23.97 3.11 L23.87 2.41 L23.50 1.39 L23.24 0.99Z M11.48 9.18 L12.44 9.18 L13.18 9.33 L14.07 9.73 L14.56 10.07 L15.11 10.59 L15.53 11.16 L15.90 11.92 L16.10 12.76 L16.13 13.59 L15.97 14.48 L15.63 15.27 L15.32 15.74 L14.72 16.37 L14.09 16.81 L13.18 17.20 L12.37 17.36 L11.42 17.36 L10.59 17.20 L10.09 17.02 L9.28 16.55 L8.65 15.97 L8.21 15.37 L7.82 14.46 L7.69 13.75 L7.69 12.99 L7.87 12.10 L8.16 11.42 L8.52 10.85 L9.18 10.17 L9.80 9.73 L10.72 9.33Z';
+
+export const tokens = tokensJson;
+export type SenkuColor = keyof typeof tokensJson.color;
+
+export interface LogoOptions {
+  size?: number;
+  color?: string;
+  outline?: boolean;
+  strokeWidth?: number;
+  title?: string;
+}
+
+/** Senku logo as an SVG string — for emails, OG images, bots, anything without React. */
+export function logoSvg({ size = 64, color = tokensJson.color.red, outline = false, strokeWidth = 1.2, title = 'Senku' }: LogoOptions = {}): string {
+  const shape = outline
+    ? `<path fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linejoin="round" d="${LOGO_PATH}"/>`
+    : `<path fill="${color}" fill-rule="evenodd" d="${LOGO_PATH}"/>`;
+  const box = outline ? '-1 -1 26 26' : '0 0 24 24';
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="${box}" role="img"><title>${title}</title>${shape}</svg>`;
+}
+
+/** Same logo as a data: URL, handy for <img src> and CSS backgrounds. */
+export function logoDataUrl(options?: LogoOptions): string {
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(logoSvg(options))}`;
+}
+
+/** CSS custom properties for the palette, e.g. to inject into a page. */
+export function cssVariables(prefix = 'senku'): string {
+  const lines: string[] = [];
+  for (const [group, values] of Object.entries(tokensJson)) {
+    for (const [key, value] of Object.entries(values)) lines.push(`  --${prefix}-${group}-${key.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`)}: ${value};`);
+  }
+  return [':root {', ...lines, '}'].join('\n');
+}
