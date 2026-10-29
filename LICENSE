@@ -9,5 +9,8 @@ You may link to this repository and use the unmodified logo to refer to
 Senku (for example, in news articles or reviews), provided it is not used
 in a way that suggests endorsement.
 
+Exception: the code in packages/api is licensed under the MIT License,
+see packages/api/LICENSE.
+
 This repository does not contain, and does not license, the source code
 of senku.one or the Senku applications.

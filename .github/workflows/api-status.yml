@@ -1,0 +1,30 @@
+name: API status
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: Живое API отвечает
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Smoke test against senku.one
+        run: |
+          node --input-type=module -e "
+          import { Senku } from './packages/api/dist/index.js';
+          const s = new Senku({ userAgent: 'SenkuSite-CI/1.0 (+https://github.com/Ra9ge/Uw.Senku.Site)' });
+          const h = await s.health();
+          if (!h.db || !h.site) throw new Error('API unhealthy: ' + JSON.stringify(h));
+          const a = await s.anime.get(52991);
+          const r = await s.search('naruto');
+          console.log('health ok, anime:', a.title, '| search:', r.results.length);
+          "
