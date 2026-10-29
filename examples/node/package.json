@@ -1,0 +1,13 @@
+{
+  "name": "senku-examples-node",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "card": "node profile-card.mjs",
+    "episodes": "node new-episodes.mjs"
+  },
+  "dependencies": {
+    "@senku/api": "file:../../packages/api",
+    "@senku/brand": "file:../../packages/brand"
+  }
+}

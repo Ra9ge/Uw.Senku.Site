@@ -1,0 +1,12 @@
+{
+  "name": "senku-discord-bot-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node bot.mjs"
+  },
+  "dependencies": {
+    "@senku/api": "file:../../packages/api",
+    "discord.js": "^14.21.0"
+  }
+}
