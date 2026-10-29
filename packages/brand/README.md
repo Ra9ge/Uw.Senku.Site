@@ -35,4 +35,4 @@ document.head.insertAdjacentHTML('beforeend', `<style>${cssVariables()}</style>`
 | `font` | `display`, `body` |
 | `motion` | `easeOut`, `spring` |
 
-Все значения — в [`tokens.json`](tokens.json). Правила использования логотипа — в [BRAND.md](../../BRAND.md). Логотип и название Senku защищены — см. [LICENSE](../../LICENSE).
+Все значения в [`tokens.json`](tokens.json), правила использования логотипа в [BRAND.md](../../BRAND.md). Логотип и название Senku защищены, см. [LICENSE](../../LICENSE).

@@ -10,7 +10,7 @@ TypeScript-клиент для публичного API [Senku](https://senku.on
 
 ## Установка
 
-Пакет пока не опубликован в npm — подключи его из этого репозитория:
+Пакет пока не опубликован в npm. Подключение из репозитория:
 
 ```bash
 git clone https://github.com/Ra9ge/Uw.Senku.Site.git
@@ -97,4 +97,4 @@ npm test
 npm run build
 ```
 
-Лицензия — MIT.
+Лицензия MIT.

@@ -11,19 +11,19 @@
 
 # Senku
 
-**Senku** — сайт и приложения для просмотра аниме и чтения манги онлайн: русская озвучка и субтитры, качество до 4K, история просмотра, списки, достижения и совместный просмотр с друзьями.
+**Senku** это сайт и приложения для просмотра аниме и чтения манги онлайн. Русская озвучка и субтитры, качество до 4K, история просмотра, списки, достижения и совместный просмотр с друзьями.
 
-Это официальный репозиторий проекта для разработчиков и сообщества: SDK публичного API, фирменный стиль в виде кода, примеры, документация, история изменений и планы. Исходного кода самого сайта здесь нет.
+Официальный репозиторий проекта: SDK публичного API, стиль в виде кода, примеры, документация, история изменений и планы. Исходного кода сайта здесь нет.
 
 ## Что здесь есть
 
 | | |
 |---|---|
-| 📦 [`packages/api`](packages/api) | **@senku/api** — TypeScript SDK для публичного API: типы, повторы, кэш, обход страниц |
-| 🎨 [`packages/brand`](packages/brand) | **@senku/brand** — цвета, радиусы, шрифты и логотип как CSS-переменные и код |
+| 📦 [`packages/api`](packages/api) | **@senku/api**. TypeScript SDK для публичного API с типами, повторами, кэшем и обходом страниц |
+| 🎨 [`packages/brand`](packages/brand) | **@senku/brand**. Цвета, радиусы, шрифты и логотип в виде CSS-переменных и кода |
 | 🧪 [`examples`](examples) | Discord-бот, карточка профиля в SVG, расписание серий, клиент на Python |
 | 📚 [`docs`](docs) | [Публичное API](docs/api.md) и [как устроен Senku](docs/how-senku-works.md) |
-| 🖼️ [`brand`](brand) | Логотипы, иконки и баннер — правила в [BRAND.md](BRAND.md) |
+| 🖼️ [`brand`](brand) | Логотипы, иконки и баннер. Правила в [BRAND.md](BRAND.md) |
 
 ## Для разработчиков
 
@@ -36,10 +36,10 @@ const { results } = await senku.search('Фрирен');
 const anime = await senku.anime.get(results[0].id);
 const rating = await senku.anime.rating(anime.id);
 
-console.log(`${anime.title} — ${rating.avg_score} ★ (${rating.total_votes} голосов)`);
+console.log(`${anime.title}: ${rating.avg_score} ★ (${rating.total_votes} голосов)`);
 ```
 
-Карточка профиля для своего README — одна команда:
+Карточка профиля для своего README:
 
 ```bash
 node examples/node/profile-card.mjs <ник> card.svg
@@ -47,7 +47,7 @@ node examples/node/profile-card.mjs <ник> card.svg
 
 <img src="docs/assets/profile-card-example.svg" width="495" alt="Карточка профиля Senku">
 
-Полный список методов — в [docs/api.md](docs/api.md), Swagger — на [senku.one/api/v2/docs](https://senku.one/api/v2/docs).
+Полный список методов в [docs/api.md](docs/api.md), Swagger на [senku.one/api/v2/docs](https://senku.one/api/v2/docs).
 
 ```bash
 npm install
@@ -71,23 +71,23 @@ npm run build
 
 ### Подписки
 
-**Senku Plus** — 4K, анимированный профиль, редкие награды в достижениях, монеты за просмотр копятся быстрее, закрытый Telegram-канал и поддержка проекта.
+**Senku Plus**: 4K, анимированный профиль, редкие награды в достижениях, монеты за просмотр копятся быстрее, закрытый Telegram-канал и поддержка проекта.
 
-**Hentai Plus** — раздел 18+ без цензуры, 4K там, где есть исходник, бейдж 18+ и косметика 18+ в магазине.
+**Hentai Plus**: раздел 18+ без цензуры, 4K там, где есть исходник, бейдж 18+ и косметика 18+ в магазине.
 
 ## Где найти
 
-- Сайт — [senku.one](https://senku.one)
-- Манга — [manga.senku.one](https://manga.senku.one)
-- Приложения — [senku.one/download](https://senku.one/download)
+- Сайт: [senku.one](https://senku.one)
+- Манга: [manga.senku.one](https://manga.senku.one)
+- Приложения: [senku.one/download](https://senku.one/download)
 
 ## Документы
 
-- [CHANGELOG.md](CHANGELOG.md) — что нового
-- [ROADMAP.md](ROADMAP.md) — над чем работаем
-- [CONTRIBUTING.md](CONTRIBUTING.md) — как помочь с SDK и документацией
-- [SECURITY.md](SECURITY.md) — как сообщить об уязвимости
-- [BRAND.md](BRAND.md) — логотип и цвета
+- [CHANGELOG.md](CHANGELOG.md): что нового
+- [ROADMAP.md](ROADMAP.md): над чем работаем
+- [CONTRIBUTING.md](CONTRIBUTING.md): как помочь с SDK и документацией
+- [SECURITY.md](SECURITY.md): как сообщить об уязвимости
+- [BRAND.md](BRAND.md): логотип и цвета
 
 ## Обратная связь
 
@@ -95,4 +95,4 @@ npm run build
 
 ---
 
-<sub>SDK в `packages/api` — под лицензией MIT. Название, логотипы и остальные материалы Senku — © 2025–2026 Senku, все права защищены, см. [LICENSE](LICENSE).</sub>
+<sub>SDK в `packages/api` распространяется по лицензии MIT. Название, логотипы и остальные материалы © 2025–2026 Senku, все права защищены. См. [LICENSE](LICENSE).</sub>

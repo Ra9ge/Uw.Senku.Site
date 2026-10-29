@@ -2,7 +2,7 @@
 
 | Папка | Что делает |
 |---|---|
-| [`node/profile-card.mjs`](node/profile-card.mjs) | Рисует SVG-карточку профиля Senku — можно вставить в README на GitHub |
+| [`node/profile-card.mjs`](node/profile-card.mjs) | SVG-карточка профиля Senku для README на GitHub |
 | [`node/new-episodes.mjs`](node/new-episodes.mjs) | Серии, которые вышли или выйдут за сутки |
 | [`discord-bot`](discord-bot) | Discord-бот с командами `/anime` и `/senku` |
 | [`python/senku.py`](python/senku.py) | Клиент на чистом Python без зависимостей + топ зрителей |
