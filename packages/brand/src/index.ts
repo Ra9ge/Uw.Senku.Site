@@ -13,7 +13,6 @@ export interface LogoOptions {
   title?: string;
 }
 
-/** Senku logo as an SVG string — for emails, OG images, bots, anything without React. */
 export function logoSvg({ size = 64, color = tokensJson.color.red, outline = false, strokeWidth = 1.2, title = 'Senku' }: LogoOptions = {}): string {
   const shape = outline
     ? `<path fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linejoin="round" d="${LOGO_PATH}"/>`
@@ -22,12 +21,10 @@ export function logoSvg({ size = 64, color = tokensJson.color.red, outline = fal
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="${box}" role="img"><title>${title}</title>${shape}</svg>`;
 }
 
-/** Same logo as a data: URL, handy for <img src> and CSS backgrounds. */
 export function logoDataUrl(options?: LogoOptions): string {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(logoSvg(options))}`;
 }
 
-/** CSS custom properties for the palette, e.g. to inject into a page. */
 export function cssVariables(prefix = 'senku'): string {
   const lines: string[] = [];
   for (const [group, values] of Object.entries(tokensJson)) {
